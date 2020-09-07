@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pixabay_galery/blocs/bloc.dart';
+import 'package:pixabay_galery/blocs/photos_bloc.dart';
 import 'package:pixabay_galery/repository/photos_repository.dart';
 
 import 'blocs/bloc_provider.dart';
