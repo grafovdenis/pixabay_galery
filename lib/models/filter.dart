@@ -1,7 +1,6 @@
 enum Filter {
   none,
-  gray,
-  transparent,
+  white,
   red,
   orange,
   yellow,
@@ -9,4 +8,10 @@ enum Filter {
   blue,
   pink,
   black,
+}
+
+extension ParseToString on Filter {
+  String toShortString() {
+    return this.toString().split('.').last;
+  }
 }

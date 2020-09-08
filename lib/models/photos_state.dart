@@ -1,7 +1,23 @@
 import 'photo.dart';
 
-class PhotosState {
-  final List<Photo> photos;
+abstract class PhotosState {}
 
-  const PhotosState({this.photos});
+class PhotosLoadingState extends PhotosState {}
+
+class PhotosLoadedState extends PhotosState {
+  final List<Photo> photos;
+  final int page;
+
+  PhotosLoadedState({this.photos, this.page});
+
+  PhotosLoadedState copyWith({List<Photo> photos, int page}) {
+    final _photos = this.photos;
+    if (photos != null) {
+      _photos.addAll(photos);
+    }
+    return PhotosLoadedState(
+      page: page ?? this.page,
+      photos: _photos,
+    );
+  }
 }

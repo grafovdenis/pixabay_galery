@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiClient {
@@ -8,8 +7,10 @@ class ApiClient {
   static final http.Client httpClient = http.Client();
 
   static Future<http.Response> get({
-    @required String color,
+    String color,
+    int page,
   }) {
-    return httpClient.get(_baseUrl + "?key=$_key&q=$color&image_type=photo");
+    return httpClient.get(_baseUrl +
+        '?key=$_key${(color != null) ? "&q=$color" : ""}&image_type=photo&page=$page');
   }
 }

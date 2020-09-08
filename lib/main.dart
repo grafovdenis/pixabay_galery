@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pixabay_galery/blocs/photos_bloc.dart';
-import 'package:pixabay_galery/repository/photos_repository.dart';
 
 import 'blocs/bloc_provider.dart';
 import 'pages/home_page.dart';
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<PhotosBloc>(
-      bloc: PhotosBloc(PhotosRepository()),
+      bloc: PhotosBloc(),
       child: MaterialApp(
         title: 'Pixabay Galery',
         theme: ThemeData(
