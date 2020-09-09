@@ -29,12 +29,13 @@ class PhotosRepository {
   static Future savePhoto(Photo photo) async {
     final bytes = (await ApiClient.getPhoto(photo.largeImageURL)).bodyBytes;
 
-    final documentDirectory = await getApplicationDocumentsDirectory();
+    final documentDirectory = await getExternalStorageDirectory();
     final folder = documentDirectory.path + "/images";
     final filePathAndName = documentDirectory.path + '/images/${photo.id}.jpg';
 
     await Directory(folder).create(recursive: true);
     final file = File(filePathAndName);
-    return file.writeAsBytesSync(bytes);
+    print(file.path);
+    return file.writeAsBytes(bytes);
   }
 }

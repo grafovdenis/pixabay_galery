@@ -12,12 +12,17 @@ class PhotoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(
-            icon: Icon(Icons.file_download),
-            onPressed: () {
-              PhotosRepository.savePhoto(photo);
-            },
-          )
+          Builder(builder: (context) {
+            return IconButton(
+              icon: Icon(Icons.file_download),
+              onPressed: () {
+                PhotosRepository.savePhoto(photo).whenComplete(
+                    () => Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text("Photo ${photo.id} saved"),
+                        )));
+              },
+            );
+          })
         ],
       ),
       body: Center(
