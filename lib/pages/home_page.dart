@@ -4,7 +4,6 @@ import 'package:pixabay_galery/widgets/photos_widget.dart';
 
 import '../blocs/bloc_provider.dart';
 import '../blocs/photos_bloc.dart';
-import '../models/photo.dart';
 import '../models/photos_state.dart';
 
 class HomePage extends StatelessWidget {

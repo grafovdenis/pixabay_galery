@@ -14,14 +14,15 @@ class PhotosWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final PhotosBloc bloc = BlocProvider.of<PhotosBloc>(context);
+    print(page);
 
     return NotificationListener<ScrollNotification>(
       onNotification: (scrollNotification) {
         if (scrollNotification.metrics.pixels ==
             scrollNotification.metrics.maxScrollExtent) {
-          // bloc.action.add(LoadPhotosAction(page: page + 1));
-          print("end");
+          bloc.action.add(LoadPhotosAction(page: page + 1));
         }
+        return true;
       },
       child: GridView.builder(
         gridDelegate:

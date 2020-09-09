@@ -5,8 +5,13 @@ abstract class Action {}
 abstract class PhotosAction extends Action {}
 
 class LoadPhotosAction extends PhotosAction {
-  final Filter filter;
   final int page;
 
-  LoadPhotosAction({this.filter, this.page});
+  LoadPhotosAction({this.page});
+}
+
+class LoadPhotosWithNewFilterAction extends PhotosAction {
+  final Filter filter;
+
+  LoadPhotosWithNewFilterAction({this.filter});
 }

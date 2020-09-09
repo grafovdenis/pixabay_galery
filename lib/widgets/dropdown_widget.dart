@@ -37,7 +37,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
           .toList(),
       onSelected: (index) {
         bloc.action
-            .add(LoadPhotosAction(filter: Filter.values[index], page: 1));
+            .add(LoadPhotosWithNewFilterAction(filter: Filter.values[index]));
         setState(() {
           value = index;
         });
